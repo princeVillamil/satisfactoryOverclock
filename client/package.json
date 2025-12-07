@@ -11,14 +11,17 @@
   "dependencies": {
     "@react-router/node": "^7.9.2",
     "@react-router/serve": "^7.9.2",
+    "dagre": "^0.8.5",
     "isbot": "^5.1.31",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-router": "^7.9.2"
+    "react-router": "^7.9.2",
+    "reactflow": "^11.11.4"
   },
   "devDependencies": {
     "@react-router/dev": "^7.9.2",
     "@tailwindcss/vite": "^4.1.13",
+    "@types/dagre": "^0.7.53",
     "@types/node": "^22",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",

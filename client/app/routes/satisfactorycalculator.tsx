@@ -1,5 +1,5 @@
 import type { Route } from "./+types/satisfactorycalculator";
-import { Welcome } from "../welcome/welcome";
+import { SatisfactoryCalculatorPage } from "~/Pages/SatisfactoryCalculatorPage";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -9,5 +9,5 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function SatisfactoryCalculator() {
-  return <div>Hello Satisfactory Calculator Page</div>;
+  return <SatisfactoryCalculatorPage/>
 }

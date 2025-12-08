@@ -1,8 +1,13 @@
 import { useState } from "react";
-import ReactFlow, { Background, Controls } from "reactflow";
+import ReactFlow, { 
+  Background, 
+  Controls,
+} from "reactflow";
 import "reactflow/dist/style.css";
 
-import { getElementsLayoutUtils } from "./Utils/getElementsLayoutUtils";
+import { getElementsLayoutUtils } from "../Utils/getElementsLayoutUtils";
+
+import CustomNode from "../Components/CustomNode";
 
 const position = { x: 0, y: 0 };
 const edgeType = 'smoothstep';
@@ -87,28 +92,31 @@ export function SatisfactoryCalculatorPage() {
   const { nodes, edges } = getElementsLayoutUtils(initialNodes, initialEdges)
   const [flowNodes] = useState(nodes);
   const [flowEdges] = useState(edges);
+  const [bgColor, setBgColor] = useState("#737373")
 
 
 
   return (
-    <main className="flex gap-5 mt-16 mb-4 ml-4 mr-4">
+    <main className="flex gap-4 mt-16 mb-4 ml-4 mr-4">
       
       <div className="CalcDisplay flex-5">
-        <div className="border-2 border-white-500" style={{ width: "100%", height: "500px" }}>
+        <div className="border-1 border-gray-500 rounded-md overflow-hidden" style={{ width: "100%", height: "500px" }}>
           <ReactFlow 
             nodes={flowNodes} 
             edges={flowEdges}
             attributionPosition="bottom-left" 
+            nodeTypes={{selectorNode: CustomNode,}}
+            
           >
           <Background
-            gap={20}
+            gap={50}
             color="#ffffffff"
           />
             {/* <Controls /> */}
           </ReactFlow>
         </div>
       </div>
-      <div className="CalcInput flex-2 outline outline-2 outline-blue-500 rounded-md">
+      <div className="CalcInput flex-3 outline outline-2 outline-blue-500 rounded-md">
         Wgt
       </div>
       {/* <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
@@ -144,4 +152,5 @@ export function SatisfactoryCalculatorPage() {
     </main>
   );
 }
+
 

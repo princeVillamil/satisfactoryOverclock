@@ -29,7 +29,26 @@ const initialNodes = [
   },
   {
     id: '2',
-    data: { label: 'node 2' },
+    type: 'selectorNode',
+    data: { 
+      label: 'Desc_CopperSheet_C',
+      ingredients: [
+        {
+          "item": "Desc_CopperIngot_C",
+          "amount": 2.0
+        }
+      ],
+      products: [
+        {
+          "item": "Desc_CopperSheet_C",
+          "amount": 1.0
+        }
+      ],
+      producedIn: [
+          "Desc_ConstructorMk1_C"
+        ]
+
+    },
     position,
   },
   {
@@ -105,7 +124,9 @@ export function SatisfactoryCalculatorPage() {
             nodes={flowNodes} 
             edges={flowEdges}
             attributionPosition="bottom-left" 
-            nodeTypes={{selectorNode: CustomNode,}}
+            nodeTypes={{
+              selectorNode: CustomNode
+            }}
             
           >
           <Background

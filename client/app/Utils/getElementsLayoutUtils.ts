@@ -4,11 +4,15 @@ import type { Node, Edge } from "reactflow"
 const dagreGraph = new dagre.graphlib.Graph();
 dagreGraph.setDefaultEdgeLabel(()=>({}));
 
-const nodeWidth = 150
-const nodeHeight = 60
-
+const nodeWidth = 162.45
+const nodeHeight = 121.833
+// 162.45×121.833
 export function getElementsLayoutUtils(nodes: Node[], edges: Edge[]){
-    dagreGraph.setGraph({ rankdir: "LR" });
+    dagreGraph.setGraph({ 
+        rankdir: "LR",
+        ranksep: 150, // Distance between columns (Left to Right)
+        nodesep: 300 
+    });
 
     nodes.forEach(node=>{
         dagreGraph.setNode(node.id, { width: nodeWidth, height: nodeHeight })
@@ -25,7 +29,7 @@ export function getElementsLayoutUtils(nodes: Node[], edges: Edge[]){
             ...node,
             position: {
                 x: position.x - nodeWidth / 2,
-                y: position.y - nodeWidth / 2
+                y: position.y - nodeHeight / 2
             }
         }
     })

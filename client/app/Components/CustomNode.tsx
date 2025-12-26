@@ -25,11 +25,11 @@ import { getImage } from '~/Utils/getImage';
     // },
 interface Ingredients{
   item: string;
-  amount: string;
+  amount: number;
 }
 interface Products{
   item: string;
-  amount: string;
+  amount: number;
 }
 interface CustomNodeProps extends NodeProps {
   data: {

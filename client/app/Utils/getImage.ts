@@ -1,14 +1,7 @@
-const images = import.meta.glob("../assets/images/items/*.{png,jpg,jpeg,webp,svg}", {
-  eager: true,
-  import: "default",
-}) as Record<string, string>;
+type imageSize = '64' | '256'
 
 export function getImage(imageDesc: string, imageSize: string): string | undefined{
-  imageDesc = imageDesc.toLowerCase().replace("-", "_") + "_" + imageSize
-  for (const path in images) {
-    if (path.endsWith(imageDesc)) {
-      return images[path];
-    }
-  }
-  return undefined;
+  const cleanName = imageDesc.toLowerCase().replaceAll("_", "-");
+
+  return `/Assets/images/items/${cleanName}_${imageSize}.png`;
 }
